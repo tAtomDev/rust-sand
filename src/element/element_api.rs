@@ -1,6 +1,6 @@
 use rand::random;
 
-use crate::{world::grid::Grid, util::math::{self, rand_direction,}};
+use crate::{world::grid::Grid, util::math::{self}};
 
 use super::Element;
 
@@ -84,19 +84,6 @@ impl ElementApi{
             move_y = dest_y;
             moved = true;
         });
-
-        /*
-        if (!moved && (velocity.x != 0 || velocity.y != 0)) {
-            if (velocity.y != 0) {
-                float delta = std::abs(velocity.y) * 0.9f;
-                velocity.x += velocity.x == 0 
-                    ? (delta * Random::FastBool() ? 1 : -1) 
-                    : velocity.x < 0 ? -delta : delta;
-                velocity.y *= 0.1f;
-            } 
-            velocity.x *= 0.8f;
-        } 
-        */
 
         {
             let mut velocity = self.get_velocity_mut(grid);

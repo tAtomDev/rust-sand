@@ -1,5 +1,3 @@
-use rand::random;
-
 pub fn iterate_grid_line<T>(x0: i32, y0: i32, x1: i32, y1: i32, mut callback: T) 
     where T: FnMut(i32, i32) -> ()
 {
@@ -43,16 +41,4 @@ pub fn iterate_grid_line<T>(x0: i32, y0: i32, x1: i32, y1: i32, mut callback: T)
         let current_y = y0 + (y_increase * y_modifier);
         callback(current_x, current_y);
     }
-}
-
-pub fn rand_direction() -> i32 {
-    match random() {
-        true => 1,
-        _ => -1
-    }
-}
-
-#[test]
-fn test_math() {
-    self::iterate_grid_line(0, 0, 30, 15, |x, y| println!("({x}, {y})"));
 }
